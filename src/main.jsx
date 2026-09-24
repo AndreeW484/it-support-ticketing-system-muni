@@ -16,7 +16,10 @@ import { AdminDashboard } from './AdminDashboard.jsx';
 import { TechnicianDashboard } from './TechnicianDashboard.jsx';
 
 
-const api = createApi(import.meta.env.VITE_APPS_SCRIPT_URL);
+const api = createApi(
+  import.meta.env.VITE_APPS_SCRIPT_URL ||
+    'https://script.google.com/macros/s/AKfycbwqBlCQeqq0jUhefmamlHwwDGOk_Te_dqYkaM2ZBrY48B5jwzkWB3Pghz_1lrC_ikFI/exec',
+);
 const invalidSessionCodes = ['INVALID_SESSION', 'SESSION_EXPIRED', 'UNAUTHENTICATED', 'USER_INACTIVE'];
 function App() {
   const [session, setSession] = useState(null);
