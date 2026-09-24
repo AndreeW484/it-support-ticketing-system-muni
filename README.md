@@ -99,4 +99,10 @@ Exportar PDF abre la impresión del navegador: elegir Guardar como PDF, tamaño 
 
 Clona este repositorio y ejecuta npm ci. Copia .env.example a .env.local, configura VITE_APPS_SCRIPT_URL con la URL /exec de tu aplicación web de Apps Script y ejecuta npm run dev. Para generar la versión de producción, ejecuta npm run build; los archivos quedan en dist/.
 
+## Publicación en Netlify
+
+El repositorio incluye `netlify.toml`: Netlify instala las dependencias, ejecuta `npm run build` con Node.js 22 y publica `dist/`. En la configuración del sitio debe existir la variable de entorno `VITE_APPS_SCRIPT_URL` con la URL `/exec` de la implementación web de Apps Script. El valor no debe guardarse en el repositorio.
+
+Los recursos generados con nombre versionado se sirven con caché prolongada, mientras que `index.html` se revalida para que cada publicación llegue a los visitantes. También se aplican cabeceras básicas de seguridad. Al conectar este repositorio mediante despliegue continuo, cada actualización de la rama de producción genera una nueva publicación automáticamente.
+
 Los archivos .env.local, las dependencias instaladas, la compilación y los resultados de pruebas locales se excluyen de Git. El repositorio no contiene credenciales ni los registros del lote de tickets ficticios. Las pruebas automatizadas usan datos simulados; los tickets de prueba solicitados se crearon únicamente en el servicio desplegado.
