@@ -1,0 +1,7 @@
+project_id = "it-support-ticketing-system-muni"
+
+[functions.ticketing]
+# La API tiene creación/seguimiento públicos y sesiones propias heredadas.
+# El handler valida las sesiones para TODAS las operaciones internas.
+verify_jwt = false
+entrypoint = "./functions/ticketing/index.ts"

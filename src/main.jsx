@@ -9,6 +9,7 @@ import '@fontsource/space-grotesk/500.css';
 import '@fontsource/space-grotesk/600.css';
 import './styles.css';
 import { createApi, validatePassword } from './api.js';
+import { createSupabaseApi } from './supabaseApi.js';
 import { PasswordField } from './Fields.jsx';
 import { PublicTicket } from './PublicTicket.jsx';
 import { TrackTicket } from './TrackTicket.jsx';
@@ -16,7 +17,10 @@ import { AdminDashboard } from './AdminDashboard.jsx';
 import { TechnicianDashboard } from './TechnicianDashboard.jsx';
 
 
-const api = createApi(import.meta.env.VITE_APPS_SCRIPT_URL);
+// Activar después de desplegar. Nunca reintentar en Sheets si Supabase falla.
+const api = import.meta.env.VITE_BACKEND === 'supabase'
+  ? createSupabaseApi(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY)
+  : createApi(import.meta.env.VITE_APPS_SCRIPT_URL);
 const invalidSessionCodes = ['INVALID_SESSION', 'SESSION_EXPIRED', 'UNAUTHENTICATED', 'USER_INACTIVE'];
 function App() {
   const [session, setSession] = useState(null);

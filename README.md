@@ -2,6 +2,17 @@
 
 Frontend React + Vite, en negro y verde neón. Una sola aplicación: formulario público como inicio y botón Acceso de informática para técnicos y administradores.
 
+## Migración a Supabase (preparada, pendiente de despliegue)
+
+El nuevo backend está en `supabase/functions/ticketing/`, con migración de seguridad
+en `supabase/migrations/` y puente de fotos en `backend/drive-bridge/Code.gs`.
+Las tablas y los datos ya fueron importados por el usuario; no repetir la importación.
+Consultar [los pasos de despliegue](backend/supabase/DEPLOYMENT.md) y
+[el contexto guardado](MIGRATION_CONTEXT.md).
+El frontend se activa con `VITE_BACKEND=supabase` después del despliegue y validación.
+Por ahora sigue seleccionado Apps Script. El resto de este README describe ese
+funcionamiento anterior.
+
 ## Ejecutar
 
 Node.js 22.12+ (validado con Node 24).

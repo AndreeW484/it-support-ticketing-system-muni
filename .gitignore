@@ -3,6 +3,8 @@ dist/
 .env
 .env.*
 !.env.example
+!.env.production
+supabase/.temp/
 test-results/
 *.log
 .DS_Store
