@@ -1,0 +1,2 @@
+[build.environment]
+  VITE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwqBlCQeqq0jUhefmamlHwwDGOk_Te_dqYkaM2ZBrY48B5jwzkWB3Pghz_1lrC_ikFI/exec"
